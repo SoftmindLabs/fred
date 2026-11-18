@@ -33,7 +33,13 @@
 
         /* Nav brand (avatar + name in place of the template's logo svg) */
         .nav-brand { display: flex; align-items: center; gap: 10px; padding-right: 6px; }
-        .nav-brand-avatar { width: 36px; height: 36px; border-radius: 100%; object-fit: cover; display: block; }
+        .nav-brand-avatar { width: 36px; height: 36px; border-radius: 100%; object-fit: cover; object-position: 46% 36%; display: block; }
+        .works-thumb { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
+        .works-thumb-wrap._1 .works-thumb { object-position: 50% 30%; }
+        .works-thumb-wrap._7 .works-thumb { object-position: 52% 40%; }
+        .works-layout .works-thumb-wrap._1, .works-layout .works-thumb-wrap._7 { width: 25%; left: 37.5%; right: auto; }
+        .works-layout .works-thumb-wrap._1 { top: 0; }
+        .works-layout .works-thumb-wrap._7 { top: 75%; }
         .nav-brand-name { font-family: var(--_font-family---poppins); color: var(--black-900); font-size: 18px; font-weight: 500; letter-spacing: var(--_letter-spacing---ls-4); }
 
         /* Nav menu toggle. Replaces the template's .nav-open, whose Webflow animation
@@ -164,7 +170,7 @@
                 <div class="nav-layout">
                     <a href="#" aria-current="page" class="nav-logo-wrap w-inline-block w--current">
                         <div class="nav-brand">
-                            <img src="https://cdn.prod.website-files.com/686964cfa204c3a3ace96bce/6873877ba088848d0ff1085b_author-2.webp" alt="Fred" class="nav-brand-avatar"/>
+                            <img src="logo.jpg" alt="Fred" class="nav-brand-avatar"/>
                             <span class="nav-brand-name">Fred</span>
                         </div>
                     </a>
@@ -201,7 +207,7 @@
                         <div class="hero-title-wrap">
                             <div class="social-proof-pill">
                                 <span class="stars-gold">★★★★★</span>
-                                <span><strong>5.0 stars</strong> (Reviewed by 250+ clients)</span>
+                                <span><strong>5.0 stars</strong> (Reviewed by 300+ clients)</span>
                             </div>
                             <h1 class="hero-title">Senior Copywriter &amp; Digital Strategist for High-Growth Startups</h1>
                         </div>
@@ -236,18 +242,8 @@
                 <div class="container">
                     <div data-w-id="15351d78-950c-cdc0-2735-2b4eda17ba0f" style="opacity:0" class="works-wrapper">
                         <div class="works-layout">
-                            <a href="#work" class="works-thumb-wrap _1 w-inline-block"><img src="https://cdn.prod.website-files.com/686964cfa204c3a3ace96bce/6873842f403ef4a65e3c03c3_thumb-1.webp" loading="lazy" alt="" class="works-thumb"/></a>
-                            <a href="#work" class="works-thumb-wrap _2 w-inline-block"><img src="https://cdn.prod.website-files.com/686964cfa204c3a3ace96bce/6873842f510c10b7494e5944_thumb-2.webp" loading="lazy" alt="" class="works-thumb"/></a>
-                            <a href="#work" class="works-thumb-wrap _3 w-inline-block"><img src="https://cdn.prod.website-files.com/686964cfa204c3a3ace96bce/68738430c59498b19fbe45a6_thumb-3.webp" loading="lazy" alt="" class="works-thumb"/></a>
-                            <a href="#work" class="works-thumb-wrap _4 w-inline-block"><img src="https://cdn.prod.website-files.com/686964cfa204c3a3ace96bce/6873842fd94b787d3838cc5a_thumb-4.webp" loading="lazy" alt="" class="works-thumb"/></a>
-                            <a href="#work" class="works-thumb-wrap _5 w-inline-block"><img src="https://cdn.prod.website-files.com/686964cfa204c3a3ace96bce/68738430f73b6b65f795e00b_thumb-5.webp" loading="lazy" alt="" class="works-thumb"/></a>
-                            <a href="#work" class="works-thumb-wrap _6 w-inline-block"><img src="https://cdn.prod.website-files.com/686964cfa204c3a3ace96bce/6873843006c54dca6fb30c9b_thumb-6.webp" loading="lazy" alt="" class="works-thumb"/></a>
-                            <a href="#work" class="works-thumb-wrap _7 w-inline-block"><img src="https://cdn.prod.website-files.com/686964cfa204c3a3ace96bce/68738430f8f01a6fd0803d2c_thumb-7.webp" loading="lazy" alt="" class="works-thumb"/></a>
-                            <a href="#work" class="works-thumb-wrap _8 w-inline-block"><img src="https://cdn.prod.website-files.com/686964cfa204c3a3ace96bce/68738431a088848d0fefebf9_thumb-8.webp" loading="lazy" alt="" class="works-thumb"/></a>
-                            <a href="#work" class="works-thumb-wrap _9 w-inline-block"><img src="https://cdn.prod.website-files.com/686964cfa204c3a3ace96bce/6873843164bdc2deecf849c3_thumb-9.webp" loading="lazy" alt="" class="works-thumb"/></a>
-                            <a href="#work" class="works-thumb-wrap _10 w-inline-block"><img src="https://cdn.prod.website-files.com/686964cfa204c3a3ace96bce/687384318e37c376f8cb9f9c_thumb-10.webp" loading="lazy" alt="" class="works-thumb"/></a>
-                            <a href="#work" class="works-thumb-wrap _11 w-inline-block"><img src="https://cdn.prod.website-files.com/686964cfa204c3a3ace96bce/687384a7e80d55c1d2041029_thumb-11.webp" loading="lazy" alt="" class="works-thumb"/></a>
-                            <a href="#work" class="works-thumb-wrap _12 w-inline-block"><img src="https://cdn.prod.website-files.com/686964cfa204c3a3ace96bce/687384a8f73b6b65f796174f_thumb-12.webp" loading="lazy" alt="" class="works-thumb"/></a>
+                            <a href="#work" class="works-thumb-wrap _1 w-inline-block"><img src="twelve.jpg" loading="lazy" alt="Fred presenting the 3 ways to differentiate" class="works-thumb"/></a>
+                            <a href="#work" class="works-thumb-wrap _7 w-inline-block"><img src="six.jpg" loading="lazy" alt="Fred at a tech event" class="works-thumb"/></a>
                         </div>
                         <div data-w-id="15351d78-950c-cdc0-2735-2b4eda17ba29" style="opacity:0" class="works-btn-wrap">
                             <a href="#work" class="btn-dark w-inline-block">
@@ -506,7 +502,7 @@
                         <div class="section-title-wrap">
                             <h2 class="section-title">Feedback that inspires</h2>
                         </div>
-                        <p class="section-sub">Reviewed by 250+ clients across high-growth startups and tech.</p>
+                        <p class="section-sub">Reviewed by 300+ clients across high-growth startups and tech.</p>
                         <span class="gap-pill">[Testimonial Gaps]</span>
                     </div>
                     <div class="testimonial-layout">
