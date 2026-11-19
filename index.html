@@ -33,13 +33,14 @@
 
         /* Nav brand (avatar + name in place of the template's logo svg) */
         .nav-brand { display: flex; align-items: center; gap: 10px; padding-right: 6px; }
-        .nav-brand-avatar { width: 36px; height: 36px; border-radius: 100%; object-fit: cover; object-position: 46% 36%; display: block; }
+        .nav-brand-avatar { width: 36px; height: 36px; border-radius: 100%; object-fit: cover; display: block; }
         .works-thumb { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
         .works-thumb-wrap._1 .works-thumb { object-position: 50% 30%; }
         .works-thumb-wrap._7 .works-thumb { object-position: 52% 40%; }
         .works-layout .works-thumb-wrap._1, .works-layout .works-thumb-wrap._7 { width: 25%; left: 37.5%; right: auto; }
         .works-layout .works-thumb-wrap._1 { top: 0; }
         .works-layout .works-thumb-wrap._7 { top: 75%; }
+        .footer-img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
         .nav-brand-name { font-family: var(--_font-family---poppins); color: var(--black-900); font-size: 18px; font-weight: 500; letter-spacing: var(--_letter-spacing---ls-4); }
 
         /* Nav menu toggle. Replaces the template's .nav-open, whose Webflow animation
@@ -170,7 +171,7 @@
                 <div class="nav-layout">
                     <a href="#" aria-current="page" class="nav-logo-wrap w-inline-block w--current">
                         <div class="nav-brand">
-                            <img src="logo.jpg" alt="Fred" class="nav-brand-avatar"/>
+                            <img src="logo-avatar.jpg" alt="Fred" class="nav-brand-avatar"/>
                             <span class="nav-brand-name">Fred</span>
                         </div>
                     </a>
@@ -443,7 +444,8 @@
             </div>
         </div>
 
-        <!-- ============ 6. SELECTED WORKS ============ -->
+        <!-- ============ 6. SELECTED WORKS (commented out for now) ============ -->
+        <!--
         <div id="work" class="blogs-section">
             <div class="section-spacing">
                 <div class="container">
@@ -493,6 +495,7 @@
                 </div>
             </div>
         </div>
+        -->
 
         <!-- ============ 7. TESTIMONIALS ============ -->
         <div class="testimonial-section">
@@ -582,16 +585,16 @@
         <div class="section-spacing">
             <div class="container footer">
                 <div class="footer-shape-left">
-                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba2b" href="#work" class="footer-img-wrap _1 w-inline-block"><img src="https://cdn.prod.website-files.com/686964cfa204c3a3ace96bce/68738b2d56ec06934409550e_thumb-13.webp" loading="lazy" alt="" class="footer-img"/></a>
-                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba2d" href="#work" class="footer-img-wrap _2 w-inline-block"><img src="https://cdn.prod.website-files.com/686964cfa204c3a3ace96bce/68738b2de0c1702f3d3594a9_thumb-14.webp" loading="lazy" alt="" class="footer-img"/></a>
-                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba2f" href="#work" class="footer-img-wrap _3 w-inline-block"><img src="https://cdn.prod.website-files.com/686964cfa204c3a3ace96bce/68738b2d83fc1b13f593e37c_thumb-15.webp" loading="lazy" alt="" class="footer-img"/></a>
-                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba31" href="#work" class="footer-img-wrap _4 w-inline-block"><img src="https://cdn.prod.website-files.com/686964cfa204c3a3ace96bce/68738b2e089332e17fce0085_thumb-16.webp" loading="lazy" alt="" class="footer-img"/></a>
+                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba2b" href="#work" class="footer-img-wrap _1 w-inline-block"><img src="twelve.jpg" loading="lazy" alt="Fred presenting the 3 ways to differentiate" class="footer-img"/></a>
+                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba2d" href="#work" class="footer-img-wrap _2 w-inline-block"><img src="six.jpg" loading="lazy" alt="Fred at a tech event" class="footer-img"/></a>
+                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba2f" href="#work" class="footer-img-wrap _3 w-inline-block"><img src="twelve.jpg" loading="lazy" alt="Fred presenting the 3 ways to differentiate" class="footer-img"/></a>
+                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba31" href="#work" class="footer-img-wrap _4 w-inline-block"><img src="six.jpg" loading="lazy" alt="Fred at a tech event" class="footer-img"/></a>
                 </div>
                 <div class="footer-shape-right">
-                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba34" href="#work" class="footer-img-wrap _5 w-inline-block"><img src="https://cdn.prod.website-files.com/686964cfa204c3a3ace96bce/68738b2eb3064782ad1d2df9_thumb-17.webp" loading="lazy" alt="" class="footer-img"/></a>
-                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba36" href="#work" class="footer-img-wrap _6 w-inline-block"><img src="https://cdn.prod.website-files.com/686964cfa204c3a3ace96bce/68738b2fc5e36c7eb800df4e_thumb-18.webp" loading="lazy" alt="" class="footer-img"/></a>
-                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba38" href="#work" class="footer-img-wrap _7 w-inline-block"><img src="https://cdn.prod.website-files.com/686964cfa204c3a3ace96bce/68738b2fa6d143c40503ecfd_thumb-19.webp" loading="lazy" alt="" class="footer-img"/></a>
-                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba3a" href="#work" class="footer-img-wrap _8 w-inline-block"><img src="https://cdn.prod.website-files.com/686964cfa204c3a3ace96bce/68738b30089332e17fce0155_thumb-20.webp" loading="lazy" alt="" class="footer-img"/></a>
+                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba34" href="#work" class="footer-img-wrap _5 w-inline-block"><img src="six.jpg" loading="lazy" alt="Fred at a tech event" class="footer-img"/></a>
+                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba36" href="#work" class="footer-img-wrap _6 w-inline-block"><img src="twelve.jpg" loading="lazy" alt="Fred presenting the 3 ways to differentiate" class="footer-img"/></a>
+                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba38" href="#work" class="footer-img-wrap _7 w-inline-block"><img src="six.jpg" loading="lazy" alt="Fred at a tech event" class="footer-img"/></a>
+                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba3a" href="#work" class="footer-img-wrap _8 w-inline-block"><img src="twelve.jpg" loading="lazy" alt="Fred presenting the 3 ways to differentiate" class="footer-img"/></a>
                 </div>
                 <div class="footer-content">
                     <div class="section-heading footer-heading">
