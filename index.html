@@ -77,6 +77,12 @@
         /* Hero social-proof pill + buttons */
         .social-proof-pill { display: inline-flex; align-items: center; gap: 8px; background-color: var(--white); border-radius: 52px; padding: 8px 16px; margin-bottom: 28px; color: var(--black-900); font-size: 14px; font-weight: 500; letter-spacing: var(--_letter-spacing---ls-1); }
         .stars-gold { color: #f5a524; letter-spacing: 1px; }
+        .works-btn-wrap { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+        .hero-about-link { color: var(--black-600); font-size: 15px; font-weight: 500; text-decoration: none; border-bottom: 1px solid transparent; transition: color .3s ease, border-color .3s ease; }
+        .hero-about-link span { display: inline-block; transition: transform .3s ease; }
+        .hero-about-link:hover { color: var(--black-900); border-color: var(--black-900); }
+        .hero-about-link:hover span { transform: translateX(3px); }
+        @media screen and (max-width: 767px) { .works-btn-wrap { gap: 12px; } .hero-about-link { font-size: 14px; } }
         @media screen and (min-width: 992px) {
             .hero-content.fred { max-width: 1000px; }
             .hero-title { font-size: 88px; }
@@ -148,12 +154,22 @@
         .testimonial-avatar { display: block; width: 48px; height: 48px; border-radius: 100%; object-fit: cover; }
         .testimonial-item { display: flex; flex-direction: column; justify-content: space-between; }
         .testimonial-item-top { flex: 1; }
-        .brand-layout.three { grid-template-columns: repeat(3, 1fr); }
-        .brand-logo { display: block; max-width: 70%; max-height: 56px; width: auto; height: auto; object-fit: contain; filter: brightness(0); opacity: .28; transition: opacity .35s ease; }
-        .brand-item:hover .brand-logo { opacity: 1; }
-        .brand-logo.sq { max-height: 76px; }
-        .brand-logo.w { width: 52%; max-height: none; }
-        @media screen and (max-width: 767px) { .brand-layout.three { grid-template-columns: 1fr 1fr; } .brand-layout.three .brand-item:last-child { grid-column: span 2; } .brand-logo { max-height: 36px; max-width: 72%; } .brand-logo.sq { max-height: 48px; } .brand-logo.w { width: 66%; } .brand-layout.three .brand-item:last-child .brand-logo.w { width: 33%; } }
+        /* Recent Clients: one row of white logo cards scrolling continuously; pauses on hover */
+        .logo-marquee { overflow: hidden; margin: -30px 0; padding: 30px 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+        .logo-track { display: flex; width: max-content; animation: logo-scroll 40s linear infinite; }
+        .logo-marquee:hover .logo-track { animation-play-state: paused; }
+        .logo-set { display: flex; gap: 16px; margin: 0; padding: 0 16px 0 0; list-style: none; }
+        .logo-item { flex: none; display: flex; align-items: center; justify-content: center; width: 220px; height: 120px; background: var(--white); border-radius: 16px; }
+        .brand-logo { display: block; width: var(--w); height: var(--h); max-width: 88%; object-fit: contain; filter: brightness(0); opacity: .32; transition: opacity .35s ease; }
+        .logo-item:hover .brand-logo { opacity: 1; }
+        @keyframes logo-scroll { to { transform: translateX(-50%); } }
+        @media screen and (max-width: 767px) {
+            .logo-set { gap: 10px; padding-right: 10px; }
+            .logo-item { width: 150px; height: 80px; border-radius: 12px; }
+            .brand-logo { width: calc(var(--w) * .7); height: calc(var(--h) * .7); }
+            .logo-track { animation-duration: 30s; }
+        }
+        @media (prefers-reduced-motion: reduce) { .logo-track { animation-duration: 120s; } }
         .testimonial-initials { width: 48px; height: 48px; border-radius: 100%; background-color: var(--black-900); color: var(--white); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; }
 
         /* Footer sub-copy */
@@ -231,11 +247,9 @@
                     <div class="nav-right">
                         <div class="nav-link-wrap">
                             <div class="nav-link-layout">
-                                <a href="#about" class="nav-link w-inline-block"><div>About</div></a>
-                                <a href="#attention" class="nav-link w-inline-block"><div>Attention</div></a>
+                                <a href="about.html" class="nav-link w-inline-block"><div>About</div></a>
                                 <a href="#services" class="nav-link w-inline-block"><div>What I Do</div></a>
-                                <a href="#work" class="nav-link w-inline-block"><div>Works</div></a>
-                                <a href="#faq" class="nav-link w-inline-block"><div>FAQ</div></a>
+                                <a href="#testimonials" class="nav-link w-inline-block"><div>Testimonials</div></a>
                                 <a href="#contact" class="nav-link w-inline-block"><div>Contact</div></a>
                             </div>
                         </div>
@@ -298,6 +312,7 @@
                                     </div>
                                 </div>
                             </a>
+                            <a href="about.html" class="hero-about-link">More about me <span aria-hidden="true">&rarr;</span></a>
                         </div>
                     </div>
                 </div>
@@ -480,12 +495,12 @@
         -->
 
         <!-- ============ 7. TESTIMONIALS (two at a time, slides to the next pair) ============ -->
-        <div class="testimonial-section">
+        <div id="testimonials" class="testimonial-section">
             <div class="section-spacing">
                 <div class="container">
                     <div class="section-heading">
                         <div class="section-title-wrap">
-                            <h2 class="section-title">Feedback that inspires</h2>
+                            <h2 class="section-title">What my clients say about me</h2>
                         </div>
                         <p class="section-sub">Reviewed by 300+ clients across high-growth startups and tech.</p>
                     </div>
@@ -606,25 +621,36 @@
             </div>
         </div>
 
-        <!-- ============ 7b. LATEST CLIENTS (template brand-section; client logos, grey until hovered) ============ -->
+        <!-- ============ 7b. RECENT CLIENTS (single-row logo marquee; second copy makes the loop seamless) ============ -->
         <div class="brand-section">
             <div class="section-spacing">
                 <div class="container">
                     <div class="section-heading">
                         <div class="section-title-wrap">
-                            <h2 class="section-title">Latest Clients</h2>
+                            <h2 class="section-title">Recent Clients</h2>
                         </div>
                     </div>
-                    <div class="brand-layout three">
-                        <div class="brand-item fx-reveal"><img src="images/logos/web/refunnel.png" loading="lazy" alt="Refunnel" class="brand-logo"/></div>
-                        <div class="brand-item fx-reveal"><img src="images/logos/web/beetheweb.png" loading="lazy" alt="Bee The Web" class="brand-logo sq"/></div>
-                        <div class="brand-item fx-reveal"><img src="images/logos/geo.svg" loading="lazy" alt="GEO Constech" class="brand-logo w"/></div>
-                        <div class="brand-item fx-reveal"><img src="images/logos/web/digitzs.png" loading="lazy" alt="Digitzs" class="brand-logo"/></div>
-                        <div class="brand-item fx-reveal"><img src="images/logos/delevit.svg" loading="lazy" alt="Delevit" class="brand-logo"/></div>
-                        <div class="brand-item fx-reveal"><img src="images/logos/teagi.svg" loading="lazy" alt="TEA and I" class="brand-logo w"/></div>
-                        <div class="brand-item fx-reveal"><img src="images/logos/web/bettercareer.png" loading="lazy" alt="BetterCareer" class="brand-logo"/></div>
-                        <div class="brand-item fx-reveal"><img src="images/logos/web/dk.png" loading="lazy" alt="DK" class="brand-logo sq"/></div>
-                        <div class="brand-item fx-reveal"><img src="images/logos/web/ij.png" loading="lazy" alt="IJ" class="brand-logo sq"/></div>
+                    <div class="logo-marquee fx-reveal">
+                        <div class="logo-track">
+                            <ul class="logo-set" role="list">
+                                <li class="logo-item"><img src="images/logos/web/refunnel.png" alt="Refunnel" class="brand-logo" style="--w:125px;--h:37px"/></li>
+                                <li class="logo-item"><img src="images/logos/delevit.svg" alt="Delevit" class="brand-logo" style="--w:134px;--h:34px"/></li>
+                                <li class="logo-item"><img src="images/logos/web/digitzs.png" alt="Digitzs" class="brand-logo" style="--w:112px;--h:41px"/></li>
+                                <li class="logo-item"><img src="images/logos/web/dk.png" alt="DK" class="brand-logo" style="--w:60px;--h:53px"/></li>
+                                <li class="logo-item"><img src="images/logos/web/bettercareer.png" alt="BetterCareer" class="brand-logo" style="--w:108px;--h:43px"/></li>
+                                <li class="logo-item"><img src="images/logos/web/beetheweb.png" alt="Bee The Web" class="brand-logo" style="--w:70px;--h:80px"/></li>
+                                <li class="logo-item"><img src="images/logos/geo.svg" alt="GEO Constech" class="brand-logo" style="--w:260px;--h:66px"/></li>
+                            </ul>
+                            <ul class="logo-set" aria-hidden="true">
+                                <li class="logo-item" aria-hidden="true"><img src="images/logos/web/refunnel.png" alt="" data-alt="Refunnel" class="brand-logo" style="--w:125px;--h:37px"/></li>
+                                <li class="logo-item" aria-hidden="true"><img src="images/logos/delevit.svg" alt="" data-alt="Delevit" class="brand-logo" style="--w:134px;--h:34px"/></li>
+                                <li class="logo-item" aria-hidden="true"><img src="images/logos/web/digitzs.png" alt="" data-alt="Digitzs" class="brand-logo" style="--w:112px;--h:41px"/></li>
+                                <li class="logo-item" aria-hidden="true"><img src="images/logos/web/dk.png" alt="" data-alt="DK" class="brand-logo" style="--w:60px;--h:53px"/></li>
+                                <li class="logo-item" aria-hidden="true"><img src="images/logos/web/bettercareer.png" alt="" data-alt="BetterCareer" class="brand-logo" style="--w:108px;--h:43px"/></li>
+                                <li class="logo-item" aria-hidden="true"><img src="images/logos/web/beetheweb.png" alt="" data-alt="Bee The Web" class="brand-logo" style="--w:70px;--h:80px"/></li>
+                                <li class="logo-item" aria-hidden="true"><img src="images/logos/geo.svg" alt="" data-alt="GEO Constech" class="brand-logo" style="--w:260px;--h:66px"/></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -636,7 +662,7 @@
                 <div class="container">
                     <div class="section-heading">
                         <div class="section-title-wrap">
-                            <h2 class="section-title">Achievement Numbers</h2>
+                            <h2 class="section-title">My Experience</h2>
                         </div>
                     </div>
                     <div class="achievement-layout stats">
@@ -760,16 +786,16 @@
         <div class="section-spacing">
             <div class="container footer">
                 <div class="footer-shape-left">
-                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba2b" href="#work" class="footer-img-wrap _1 w-inline-block"><img src="images/fred1.jpg" loading="lazy" alt="Fred" class="footer-img" style="object-position:50% 28%"/></a>
-                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba2d" href="#work" class="footer-img-wrap _2 w-inline-block"><img src="images/twelve.jpg" loading="lazy" alt="Fred presenting" class="footer-img" style="object-position:50% 30%"/></a>
-                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba2f" href="#work" class="footer-img-wrap _3 w-inline-block"><img src="images/six.jpg" loading="lazy" alt="Fred at a tech event" class="footer-img" style="object-position:52% 40%"/></a>
-                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba31" href="#work" class="footer-img-wrap _4 w-inline-block"><img src="images/fred2.jpg" loading="lazy" alt="Fred" class="footer-img" style="object-position:48% 30%"/></a>
+                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba2b" href="about.html" class="footer-img-wrap _1 w-inline-block"><img src="images/fred1.jpg" loading="lazy" alt="Fred" class="footer-img" style="object-position:50% 28%"/></a>
+                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba2d" href="about.html" class="footer-img-wrap _2 w-inline-block"><img src="images/twelve.jpg" loading="lazy" alt="Fred presenting" class="footer-img" style="object-position:50% 30%"/></a>
+                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba2f" href="about.html" class="footer-img-wrap _3 w-inline-block"><img src="images/six.jpg" loading="lazy" alt="Fred at a tech event" class="footer-img" style="object-position:52% 40%"/></a>
+                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba31" href="about.html" class="footer-img-wrap _4 w-inline-block"><img src="images/fred2.jpg" loading="lazy" alt="Fred" class="footer-img" style="object-position:48% 30%"/></a>
                 </div>
                 <div class="footer-shape-right">
-                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba34" href="#work" class="footer-img-wrap _5 w-inline-block"><img src="images/fred2.jpg" loading="lazy" alt="Fred" class="footer-img" style="object-position:48% 30%"/></a>
-                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba36" href="#work" class="footer-img-wrap _6 w-inline-block"><img src="images/six.jpg" loading="lazy" alt="Fred at a tech event" class="footer-img" style="object-position:52% 40%"/></a>
-                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba38" href="#work" class="footer-img-wrap _7 w-inline-block"><img src="images/fred1.jpg" loading="lazy" alt="Fred" class="footer-img" style="object-position:50% 28%"/></a>
-                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba3a" href="#work" class="footer-img-wrap _8 w-inline-block"><img src="images/twelve.jpg" loading="lazy" alt="Fred presenting" class="footer-img" style="object-position:50% 30%"/></a>
+                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba34" href="about.html" class="footer-img-wrap _5 w-inline-block"><img src="images/fred2.jpg" loading="lazy" alt="Fred" class="footer-img" style="object-position:48% 30%"/></a>
+                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba36" href="about.html" class="footer-img-wrap _6 w-inline-block"><img src="images/six.jpg" loading="lazy" alt="Fred at a tech event" class="footer-img" style="object-position:52% 40%"/></a>
+                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba38" href="about.html" class="footer-img-wrap _7 w-inline-block"><img src="images/fred1.jpg" loading="lazy" alt="Fred" class="footer-img" style="object-position:50% 28%"/></a>
+                    <a data-w-id="06992715-ee0c-69d6-ed26-6bc0ceb1ba3a" href="about.html" class="footer-img-wrap _8 w-inline-block"><img src="images/twelve.jpg" loading="lazy" alt="Fred presenting" class="footer-img" style="object-position:50% 30%"/></a>
                 </div>
                 <div class="footer-content">
                     <div class="section-heading footer-heading">
@@ -792,16 +818,13 @@
                 </div>
                 <div class="footer-layout">
                     <div class="footer-menu-link-wrap">
-                        <a href="#about" class="footer-menu-link">About</a>
-                        <a href="#attention" class="footer-menu-link">Attention</a>
-                        <a href="#services" class="footer-menu-link">Services</a>
-                        <a href="#work" class="footer-menu-link">Works</a>
-                        <a href="#faq" class="footer-menu-link">FAQ</a>
+                        <a href="about.html" class="footer-menu-link">About</a>
+                        <a href="#services" class="footer-menu-link">What I Do</a>
+                        <a href="#testimonials" class="footer-menu-link">Testimonials</a>
+                        <a href="#contact" class="footer-menu-link">Contact</a>
                     </div>
                     <div class="footer-social-link-wrap">
-                        <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-social-link">LinkedIn</a>
-                        <a href="https://twitter.com" target="_blank" rel="noopener" class="footer-social-link">X/Twitter</a>
-                        <a href="https://substack.com" target="_blank" rel="noopener" class="footer-social-link">Substack</a>
+                        <a href="https://www.linkedin.com/in/godfred-obeng-33554a17b/" target="_blank" rel="noopener" class="footer-social-link">LinkedIn</a>
                     </div>
                     <div class="footer-copyright-text-wrap">
                         <p class="footer-copyright-text">© <span id="year">2026</span> Fred. All rights reserved.</p>
